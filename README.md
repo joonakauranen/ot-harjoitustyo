@@ -2,8 +2,10 @@
 
 Tässä pari sanaa **lihavoitua tekstiä** ja pari sanaa *kursivoitua tekstiä*.
 
-http://github.com - automatic!
+### This is a third-tier heading
+
+### This is a third-tier heading
 
 [gitlog](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
-[GitHub](http://github.com)
+[komentorivi](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
