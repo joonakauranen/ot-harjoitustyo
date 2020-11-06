@@ -11,4 +11,5 @@
 ### Viikko 2
 
 [vaatimusmäärittely](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+
 [tuntikirjanpito](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
