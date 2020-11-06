@@ -13,3 +13,5 @@
 [vaatimusmäärittely](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 [tuntikirjanpito](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+
+[unicafe-ohjelman testikattavuus](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/laskarit/viikko2/testikattavuus.png)
