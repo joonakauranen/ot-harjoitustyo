@@ -13,6 +13,4 @@ public class Block {
         return "Block data: " + this.data;
     }
 
-    
-
 }
