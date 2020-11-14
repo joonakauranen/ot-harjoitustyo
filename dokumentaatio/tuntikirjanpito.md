@@ -4,4 +4,5 @@
 | :----:|:-----| :-----|
 | 06.11.| 2    |Aiheeseen liittyvään teknologiaan perehtymistä|
 | 06.11.| 2    |Vaatimusmäärittelyä ja työaikakirjonpidon teko|
-| yht   | 4    | | 
+| 14.11|| 3    |Projektin aloittelua|
+| yht   | 7    | | 
