@@ -6,6 +6,7 @@ The purpose of this application is to demonstrate how a very basic implementatio
 ## Dokumentation
 
 [Requirements analysis](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/requirements_analysis.md)
+
 [Working hours report](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/working_hours_report.md)
 
 ## Testing
