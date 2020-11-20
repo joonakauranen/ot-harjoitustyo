@@ -6,7 +6,7 @@
 ## Basic functionality
  - create blocks manually
  - add data into the block
- - add data a hash for the blocks
+ - add a hash for the blocks
 ## Further development ideas
  After completing the basic functionality some of the following will be added:
  - combining the individual blocks into a chain
