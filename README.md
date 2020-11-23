@@ -20,3 +20,11 @@ Create a test coverage report with:
 mvn jacoco:report
 
 After running the above command find the report from _target/site/jacoco/index.html_ and open in browser.
+
+## Checkstyle
+
+Run style checks as defined in  [checkstyle.xml](https://github.com/mluukkai/OtmTodoApp/blob/master/checkstyle.xml) with the following command:
+
+mvn jxr:jxr checkstyle:checkstyle
+
+To open the report navigate to _target/site/_ and open _checkstyle.html_ in your browser
