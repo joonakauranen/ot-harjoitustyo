@@ -25,7 +25,7 @@ After running the above command find the report from _target/site/jacoco/index.h
 
 ## Checkstyle
 
-Run style checks as defined in  [checkstyle.xml](https://github.com/mluukkai/OtmTodoApp/blob/master/checkstyle.xml) with the following command:
+Run style checks as defined in  [checkstyle.xml](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/blockchainexperiment/checkstyle.xml) with the following command:
 
 mvn jxr:jxr checkstyle:checkstyle
 
