@@ -3,7 +3,7 @@
 
 The purpose of this application is to demonstrate how a very basic implementation of a blockchain system works.
 
-## Dokumentation
+## Documentation
 
 [Requirements analysis](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/requirements_analysis.md)
 
