@@ -9,6 +9,8 @@ The purpose of this application is to demonstrate how a very basic implementatio
 
 [Working hours report](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/working_hours_report.md)
 
+[Architecture](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/architecture.md)
+
 ## Testing
 
 Run the tests with the following command:
