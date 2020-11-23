@@ -1,5 +1,7 @@
-package blockchainexperiment;
+package fi.koululainenjoona.ui;
 
+import fi.koululainenjoona.logic.Chain;
+import fi.koululainenjoona.logic.Block;
 import java.util.Scanner;
 
 public class UI {
@@ -13,6 +15,8 @@ public class UI {
     }
 
     public void run() {
+        
+        this.chain.writeOnChain(new Block("This automatically created block is the beginning of the blockchain", "0"));
 
         while (true) {
 
@@ -26,7 +30,7 @@ public class UI {
                 System.out.println("Type a message to save on the chain and press ENTER: ");
                 System.out.print(">");
                 String dataToInsert = scanner.nextLine();
-                Block blockToAdd = new Block(dataToInsert);
+                Block blockToAdd = new Block(dataToInsert, chain.getPreviousBlock().getHash());
                 this.chain.writeOnChain(blockToAdd);
             }
 
