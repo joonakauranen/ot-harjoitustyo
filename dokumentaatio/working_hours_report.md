@@ -10,4 +10,4 @@
 | 22.11 | 5    |Tests, packages, studying google api|
 | 23.11 | 3    |Class diagram, test packages, checkstyle|
 | 23.11 | 1    |Remote test|
-| sum   | 14   | | 
+| sum   | 23   | | 
