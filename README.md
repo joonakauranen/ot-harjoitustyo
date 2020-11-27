@@ -30,3 +30,11 @@ Run style checks as defined in  [checkstyle.xml](https://github.com/joonakaurane
 mvn jxr:jxr checkstyle:checkstyle
 
 To open the report navigate to _target/site/_ and open _checkstyle.html_ in your browser
+
+## Creating an executable JAR file
+
+Run the following command to generate the JAR file:
+
+mvn package
+
+Now a file named blockchainexperiment-1.0-SNAPSHOT.jar can be found in the project's target folder

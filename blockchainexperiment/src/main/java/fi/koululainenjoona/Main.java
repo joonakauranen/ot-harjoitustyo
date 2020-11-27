@@ -11,14 +11,11 @@ public class Main {
     public static void main(String[] args) throws GeneralSecurityException, IOException {
 
         Chain chain = new Chain();
+        //SheetsChain sheets = new SheetsChain();
         Scanner scanner = new Scanner(System.in);
         UI ui = new UI(chain, scanner);
 
         ui.run();
-        
-        //SheetsChain sheets = new SheetsChain();
-        //sheets.writeSheet();
-        //sheets.clearSheet();
 
     }
 }
