@@ -13,7 +13,7 @@ The purpose of this application is to demonstrate how a very basic implementatio
 
 ## Testing
 
-Run the tests with the following command:
+Run tests with the following command:
 
 mvn test
 
@@ -37,4 +37,4 @@ Run the following command to generate the JAR file:
 
 mvn package
 
-Now a file named blockchainexperiment-1.0-SNAPSHOT.jar can be found in the project's target folder
+Now a file named _blockchainexperiment-1.0-SNAPSHOT.jar_ can be found in the project's _target_ folder
