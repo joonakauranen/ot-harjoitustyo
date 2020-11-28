@@ -67,16 +67,14 @@ public class SheetsChain {
             try {
                 desktop.browse(new URI(url));
             } catch (IOException | URISyntaxException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                System.out.println("IOException");
             }
         }else{
             Runtime runtime = Runtime.getRuntime();
             try {
                 runtime.exec("xdg-open " + url);
             } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                System.out.println("IOException");
             }
         }
     }

@@ -5,6 +5,7 @@
  */
 package fi.koululainenjoona.logic;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -12,34 +13,24 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author jobkaura
- */
 public class ChainTest {
     
+    Block testBlock;
+    Chain testChain;
+
     public ChainTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+
     @Before
     public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+        testChain = new Chain();
+        testChain.writeOnChain(new Block("This automatically created block is the beginning of the blockchain", "0"));
+        testBlock = new Block("Here's some data", testChain.getPreviousBlock().getHash());
+        testChain.writeOnChain(testBlock);
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void getChainWorks() {
+        assertEquals(ArrayList.class, testChain.getChain().getClass());
+    }
 }

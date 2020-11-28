@@ -14,20 +14,17 @@ public class Chain {
     public void writeOnChain(Block block) {
         this.chain.add(block);
     }
-    
+
     public Block getPreviousBlock() {
         return this.chain.get(chain.size() - 1);
     }
 
-    public void printAllBlocks() {
-        
-        for (Block b : this.chain) {
-            System.out.println(b.toString());
-        }
-    }
-    
     public Block getBlock(int indeksi) {
         return this.chain.get(indeksi);
+    }
+
+    public List<Block> getChain() {
+        return chain;
     }
 
 }

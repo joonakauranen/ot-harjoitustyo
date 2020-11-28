@@ -5,6 +5,7 @@ import fi.koululainenjoona.logic.Chain;
 import fi.koululainenjoona.logic.Block;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import java.util.List;
 import java.util.Scanner;
 
 public class UI {
@@ -82,12 +83,21 @@ public class UI {
             }
 
             if (command.equals("2")) {
-                chain.printAllBlocks();
+                this.printAllBlocks();
                 continue;
             }
 
             System.out.println("Invalid command: " + "'" + command + "'");
 
+        }
+    }
+    
+    public void printAllBlocks() {
+        
+        List<Block> allBlocks = this.chain.getChain();
+        
+        for (Block b : allBlocks) {
+            System.out.println(b.toString());
         }
     }
 }
