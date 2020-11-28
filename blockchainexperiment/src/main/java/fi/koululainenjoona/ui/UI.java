@@ -23,18 +23,27 @@ public class UI {
 
         while (true) {
             System.out.println("Do you want to save your blockchain on Google Sheets? Y/N");
+            System.out.print(">");
             String command = String.valueOf(scanner.nextLine());
             command = command.toUpperCase();
-            
+
             if (command.equals("Y")) {
-                System.out.println("Using Google Sheets requires logging in to a Google account and granting the app a permission to see, edit, create, and delete spreadsheets in Google Drive.");
-                this.sheets = new SheetsChain();
-                //For test purposes
-                this.sheets.clearSheet();
-                useSheets = true;
+                System.out.println("Using Google Sheets requires logging in to a Google account and granting this app a permission to see, edit, create, and delete spreadsheets in Google Drive.");
+                System.out.println("Are you sure you want to continue? 'Y' to confirm, any other key to continue without Google Sheets");
+                System.out.print(">");
+                String confirm = String.valueOf(this.scanner.nextLine());
+                confirm = confirm.toUpperCase();
+                if (confirm.equals("Y")) {
+                    this.sheets = new SheetsChain();
+                    //For test purposes
+                    this.sheets.clearSheet();
+                    this.sheets.openStandardSheetInBrowser();
+                    useSheets = true;
+                    break;
+                }
                 break;
             }
-            
+
             if (!command.equals("N")) {
                 System.out.println("Type 'Y' for yes and 'N' for no");
                 continue;
@@ -64,7 +73,7 @@ public class UI {
                 String dataToInsert = scanner.nextLine();
                 Block blockToAdd = new Block(dataToInsert, chain.getPreviousBlock().getHash());
                 this.chain.writeOnChain(blockToAdd);
-                
+
                 if (useSheets == true) {
                     this.sheets.appendToSheet(blockToAdd);
                 }
@@ -76,8 +85,8 @@ public class UI {
                 chain.printAllBlocks();
                 continue;
             }
-            
-            System.out.println("Invalid command: " + "'"+ command + "'");
+
+            System.out.println("Invalid command: " + "'" + command + "'");
 
         }
     }

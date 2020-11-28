@@ -20,9 +20,7 @@ public class Chain {
     }
 
     public void printAllBlocks() {
-        if (chain.isEmpty()) {
-            System.out.println("You haven't generated any blocks");
-        }
+        
         for (Block b : this.chain) {
             System.out.println(b.toString());
         }

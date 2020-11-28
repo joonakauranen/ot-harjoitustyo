@@ -6,7 +6,10 @@ import com.google.api.services.sheets.v4.model.ClearValuesRequest;
 import com.google.api.services.sheets.v4.model.UpdateValuesResponse;
 import com.google.api.services.sheets.v4.model.ValueRange;
 import fi.koululainenjoona.logic.Block;
+import java.awt.Desktop;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.security.GeneralSecurityException;
 
 import java.util.Arrays;
@@ -54,5 +57,27 @@ public class SheetsChain {
 
         sheetsService.spreadsheets().values().clear(spreadsheetId, "A1:Z1000", clearValuesRequest).execute();
 
+    }
+    
+    public void openStandardSheetInBrowser() {
+        String url = "https://docs.google.com/spreadsheets/d/1YfgQ27ZTYH4ORWwX9duBnVBVq5dM8lSUDKzokZxXNqk/edit#gid=0";
+
+        if(Desktop.isDesktopSupported()){
+            Desktop desktop = Desktop.getDesktop();
+            try {
+                desktop.browse(new URI(url));
+            } catch (IOException | URISyntaxException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }else{
+            Runtime runtime = Runtime.getRuntime();
+            try {
+                runtime.exec("xdg-open " + url);
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
     }
 }
