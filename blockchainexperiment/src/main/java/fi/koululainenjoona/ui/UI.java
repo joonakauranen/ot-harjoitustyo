@@ -91,11 +91,11 @@ public class UI {
 
         }
     }
-    
+
     public void printAllBlocks() {
-        
+
         List<Block> allBlocks = this.chain.getChain();
-        
+
         for (Block b : allBlocks) {
             System.out.println(b.toString());
         }

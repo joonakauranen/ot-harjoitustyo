@@ -1,6 +1,4 @@
-
 package fi.koululainenjoona.googlesheets;
-
 
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
@@ -28,7 +26,7 @@ public class SheetsService {
         Credential credential = SheetsService.authorize();
         return new Sheets.Builder(GoogleNetHttpTransport.newTrustedTransport(), JacksonFactory.getDefaultInstance(), credential).setApplicationName(APPNAME).build();
     }
-    
+
     public static Credential authorize() throws IOException, GeneralSecurityException {
         InputStream in = SheetsService.class.getResourceAsStream("/credentials.json");
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JacksonFactory.getDefaultInstance(), new InputStreamReader(in));

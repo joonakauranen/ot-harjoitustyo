@@ -24,32 +24,32 @@ public class SheetsChain {
     }
 
     public void writeSheet(Block block) throws IOException {
-        
+
         String genesisBlockData = block.getData();
         String genesisBlockHash = block.getHash();
-        
+
         ValueRange body = new ValueRange()
                 .setValues(Arrays.asList(Arrays.asList(genesisBlockData, genesisBlockHash)));
-        
+
         UpdateValuesResponse result = sheetsService.spreadsheets().values()
                 .update(spreadsheetId, "A1", body)
                 .setValueInputOption("RAW")
                 .execute();
     }
-    
+
     public void appendToSheet(Block block) throws IOException {
-        
+
         String data = block.getData();
         String hash = block.getHash();
-        
+
         ValueRange appendBody = new ValueRange().setValues(Arrays.asList(Arrays.asList(data, hash)));
-	
+
         AppendValuesResponse appendResult = sheetsService.spreadsheets().values()
-	  .append(spreadsheetId, "A1", appendBody)
-	  .setValueInputOption("USER_ENTERED")
-	  .setInsertDataOption("INSERT_ROWS")
-	  .setIncludeValuesInResponse(true)
-	  .execute();
+                .append(spreadsheetId, "A1", appendBody)
+                .setValueInputOption("USER_ENTERED")
+                .setInsertDataOption("INSERT_ROWS")
+                .setIncludeValuesInResponse(true)
+                .execute();
     }
 
     public void clearSheet() throws IOException {
@@ -58,18 +58,18 @@ public class SheetsChain {
         sheetsService.spreadsheets().values().clear(spreadsheetId, "A1:Z1000", clearValuesRequest).execute();
 
     }
-    
+
     public void openStandardSheetInBrowser() {
         String url = "https://docs.google.com/spreadsheets/d/1YfgQ27ZTYH4ORWwX9duBnVBVq5dM8lSUDKzokZxXNqk/edit#gid=0";
 
-        if(Desktop.isDesktopSupported()){
+        if (Desktop.isDesktopSupported()) {
             Desktop desktop = Desktop.getDesktop();
             try {
                 desktop.browse(new URI(url));
             } catch (IOException | URISyntaxException e) {
                 System.out.println("IOException");
             }
-        }else{
+        } else {
             Runtime runtime = Runtime.getRuntime();
             try {
                 runtime.exec("xdg-open " + url);

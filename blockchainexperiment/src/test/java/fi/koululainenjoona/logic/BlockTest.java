@@ -39,7 +39,7 @@ public class BlockTest {
     public void getPreviousBlockReturnsABlock() {
         assertEquals(Block.class, testChain.getPreviousBlock().getClass());
     }
-    
+
     @Test
     public void getPreviousHashReturnsTheCorrectHash() {
         assertEquals(testChain.getBlock(0).getHash(), testChain.getBlock(1).getPreviousHash());

@@ -25,8 +25,6 @@ public class Block {
     public String getData() {
         return data;
     }
-    
-    
 
     public String getPreviousHash() {
         return previousHash;
@@ -57,7 +55,7 @@ public class Block {
 
         return hexadecimalBuilder.toString();
     }
-    
+
     public String createHash() {
         String hashData = this.previousHash + Long.toString(this.date) + this.data;
         String blocksHash = applyHashFunction(hashData);
