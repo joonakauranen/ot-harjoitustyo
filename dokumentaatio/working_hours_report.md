@@ -10,4 +10,8 @@
 | 22.11 | 5    |Tests, packages, studying google api|
 | 23.11 | 3    |Class diagram, test packages, checkstyle|
 | 23.11 | 1    |Remote test|
-| sum   | 23   | | 
+| 26.11 | 2    |JAR file|
+| 27.11 | 4    |Sheets to UI|
+| 28.11 | 2    |More tests|
+| 28.11 | 3    |fixed style, general work on code|
+| sum   | 34   | | 
