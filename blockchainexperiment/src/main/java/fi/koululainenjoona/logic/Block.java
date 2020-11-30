@@ -5,10 +5,10 @@ import java.util.Date;
 
 public class Block {
 
-    private String data;
-    private long date;
-    private String hash;
-    private String previousHash;
+    private final String data;
+    private final long date;
+    private final String hash;
+    private final String previousHash;
 
     public Block(String data, String previousHash) {
         this.data = data;
@@ -56,7 +56,7 @@ public class Block {
         return hexadecimalBuilder.toString();
     }
 
-    public String createHash() {
+    private String createHash() {
         String hashData = this.previousHash + Long.toString(this.date) + this.data;
         String blocksHash = applyHashFunction(hashData);
         return blocksHash;

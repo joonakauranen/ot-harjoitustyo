@@ -60,7 +60,7 @@ public class SheetsChain {
     }
 
     public void openStandardSheetInBrowser() {
-        String url = "https://docs.google.com/spreadsheets/d/1YfgQ27ZTYH4ORWwX9duBnVBVq5dM8lSUDKzokZxXNqk/edit#gid=0";
+        String url = "https://docs.google.com/spreadsheets/d/1YfgQ27ZTYH4ORWwX9duBnVBVq5dM8lSUDKzokZxXNqk/edit?usp=sharing";
 
         if (Desktop.isDesktopSupported()) {
             Desktop desktop = Desktop.getDesktop();
