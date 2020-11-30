@@ -14,4 +14,6 @@
 | 27.11 | 4    |Sheets to UI|
 | 28.11 | 2    |More tests|
 | 28.11 | 3    |fixed style, general work on code|
-| sum   | 34   | | 
+| 29.11 | 3    |Google Sheets API problems|
+| 30.11 | 2    |Did a sequence diagram and started planning new functionality|
+| sum   | 39   | | 
