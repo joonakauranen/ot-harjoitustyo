@@ -37,7 +37,7 @@ public class UI {
                 if (confirm.equals("Y")) {
                     this.sheets = new SheetsChain();
                     //For test purposes
-                    //this.sheets.clearSheet();
+                    this.sheets.clearSheet();
                     this.sheets.openStandardSheetInBrowser();
                     useSheets = true;
                     break;
