@@ -38,3 +38,7 @@ Run the following command to generate the JAR file:
 mvn package
 
 Now a file named _blockchainexperiment-1.0-SNAPSHOT.jar_ can be found in the project's _target_ folder
+
+## Releases
+
+Week five [release](https://github.com/joonakauranen/ot-harjoitustyo/releases/tag/viikko5)
