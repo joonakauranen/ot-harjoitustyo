@@ -56,7 +56,7 @@ public class Block {
         return hexadecimalBuilder.toString();
     }
 
-    private String createHash() {
+    public String createHash() {
         String hashData = this.previousHash + Long.toString(this.date) + this.data;
         String blocksHash = applyHashFunction(hashData);
         return blocksHash;

@@ -63,6 +63,8 @@ public class UI {
 
             System.out.println("Press '1' to create a new block");
             System.out.println("Press '2' to print out all blocks");
+            System.out.println("Press '3' to check validity");
+            System.out.println("To exit type 'EXIT'");
             System.out.print(">");
 
             String command = String.valueOf(scanner.nextLine());
@@ -85,6 +87,15 @@ public class UI {
             if (command.equals("2")) {
                 this.printAllBlocks();
                 continue;
+            }
+
+            if (command.equals("3")) {
+                this.chain.checkValidity();
+                continue;
+            }
+
+            if (command.equals("EXIT")) {
+                break;
             }
 
             System.out.println("Invalid command: " + "'" + command + "'");

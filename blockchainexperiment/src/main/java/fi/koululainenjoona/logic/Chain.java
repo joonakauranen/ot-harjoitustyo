@@ -27,4 +27,24 @@ public class Chain {
         return chain;
     }
 
+    public void checkValidity() {
+        Block currentBlock;
+        Block previousBlock;
+
+        for (int i = 1; i < this.chain.size(); i++) {
+            currentBlock = this.chain.get(i);
+            previousBlock = this.chain.get(i - 1);
+
+            if (!currentBlock.getHash().equals(currentBlock.createHash())) {
+                System.out.println("Not valid");
+            }
+
+            if (!previousBlock.getHash().equals(previousBlock.createHash())) {
+                System.out.println("Not valid");
+            }
+
+        }
+        System.out.println("Valid");
+    }
+
 }
