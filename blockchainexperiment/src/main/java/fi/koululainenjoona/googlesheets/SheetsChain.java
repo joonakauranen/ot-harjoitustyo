@@ -20,7 +20,7 @@ import java.util.List;
 public class SheetsChain {
 
     private Sheets sheetsService;
-    private String spreadsheetId = "1YfgQ27ZTYH4ORWwX9duBnVBVq5dM8lSUDKzokZxXNqk";
+    private final String spreadsheetId = "1YfgQ27ZTYH4ORWwX9duBnVBVq5dM8lSUDKzokZxXNqk";
 
     public SheetsChain() throws GeneralSecurityException, IOException {
         this.sheetsService = SheetsService.getSheetsService();
@@ -159,12 +159,12 @@ public class SheetsChain {
         }
 
         if (isValid) {
-            System.out.println("Google Sheets matches with the local copy.\n");
+            System.out.println("\nGoogle Sheets matches with the local copy.");
         } else {
 
             this.rewriteChain(chain);
 
-            System.out.println("Found corrupted data: \n\n" + errorReport + "\n\nRewrote the sheet.\n");
+            System.out.println("\nFound corrupted data:\n" + errorReport + "\nRewrote the sheet.");
         }
     }
 

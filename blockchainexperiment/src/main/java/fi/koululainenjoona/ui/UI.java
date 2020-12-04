@@ -1,8 +1,8 @@
 package fi.koululainenjoona.ui;
 
 import fi.koululainenjoona.googlesheets.SheetsChain;
-import fi.koululainenjoona.logic.Chain;
 import fi.koululainenjoona.logic.Block;
+import fi.koululainenjoona.logic.Chain;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.List;
@@ -35,11 +35,7 @@ public class UI {
                 String confirm = String.valueOf(this.scanner.nextLine());
                 confirm = confirm.toUpperCase();
                 if (confirm.equals("Y")) {
-                    this.sheets = new SheetsChain();
-                    //For test purposes
-                    this.sheets.clearSheet();
-                    this.sheets.openStandardSheetInBrowser();
-                    useSheets = true;
+                    this.confrimSheetsUsage();
                     break;
                 }
                 break;
@@ -53,32 +49,18 @@ public class UI {
             break;
         }
 
-        Block genesisBlock = new Block("This automatically created block is the beginning of the blockchain", "0");
-        this.chain.writeOnChain(genesisBlock);
-        if (useSheets == true) {
-            this.sheets.writeSheet(genesisBlock);
-        }
+        this.createGenesisBlock();
 
         while (true) {
-            
+
             this.printInstructions();
 
             String command = String.valueOf(scanner.nextLine());
             command = command.toUpperCase();
 
             if (command.equals("1")) {
-                System.out.println("\nType a message to save on the chain and press ENTER: ");
-                System.out.print(">");
-                String dataToInsert = scanner.nextLine();
-                Block blockToAdd = new Block(dataToInsert, chain.getPreviousBlock().getHash());
-                blockToAdd.mineBlock();
-                this.chain.writeOnChain(blockToAdd);
-
-                if (useSheets == true) {
-                    this.sheets.appendToSheet(blockToAdd);
-                }
+                this.createNewBlock();
                 continue;
-
             }
 
             if (command.equals("2")) {
@@ -101,7 +83,6 @@ public class UI {
             }
 
             System.out.println("Invalid command: " + "'" + command + "'");
-
         }
     }
 
@@ -110,26 +91,51 @@ public class UI {
         List<Block> allBlocks = this.chain.getChain();
 
         System.out.println("");
-        
+
         for (Block b : allBlocks) {
             System.out.println(b.toString());
         }
     }
 
-    public void defaultInstructions() {
+    public void printInstructions() {
+
         System.out.println("\nPress '1' to create a new block");
         System.out.println("Press '2' to print out all blocks");
         System.out.println("Press '3' to check chain's validity");
+
+        if (useSheets) {
+            System.out.println("Press '4' to check validity of the chain on Google Sheets");
+        }
+
         System.out.println("Press 'x' to exit");
         System.out.print(">");
     }
-    
-    public void printInstructions() {
-        if (useSheets) {
-            this.defaultInstructions();
-            System.out.println("Press '4' to check validity of the chain on Google Sheets");  
-        } else {
-            this.defaultInstructions();
+
+    public void confrimSheetsUsage() throws GeneralSecurityException, IOException {
+        this.sheets = new SheetsChain();
+        this.sheets.clearSheet();
+        this.sheets.openStandardSheetInBrowser();
+        useSheets = true;
+    }
+
+    public void createGenesisBlock() throws IOException {
+        Block genesisBlock = new Block("This automatically created block is the beginning of the blockchain", "0");
+        this.chain.writeOnChain(genesisBlock);
+        if (useSheets == true) {
+            this.sheets.writeSheet(genesisBlock);
+        }
+    }
+
+    public void createNewBlock() throws IOException {
+        System.out.println("\nType a message to save on the chain and press ENTER: ");
+        System.out.print(">");
+        String dataToInsert = scanner.nextLine();
+        Block blockToAdd = new Block(dataToInsert, chain.getPreviousBlock().getHash());
+        blockToAdd.mineBlock();
+        this.chain.writeOnChain(blockToAdd);
+
+        if (useSheets == true) {
+            this.sheets.appendToSheet(blockToAdd);
         }
     }
 }
