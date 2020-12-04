@@ -60,21 +60,18 @@ public class UI {
         }
 
         while (true) {
-
-            System.out.println("Press '1' to create a new block");
-            System.out.println("Press '2' to print out all blocks");
-            System.out.println("Press '3' to check validity");
-            System.out.println("To exit type 'EXIT'");
-            System.out.print(">");
+            
+            this.printInstructions();
 
             String command = String.valueOf(scanner.nextLine());
             command = command.toUpperCase();
 
             if (command.equals("1")) {
-                System.out.println("Type a message to save on the chain and press ENTER: ");
+                System.out.println("\nType a message to save on the chain and press ENTER: ");
                 System.out.print(">");
                 String dataToInsert = scanner.nextLine();
                 Block blockToAdd = new Block(dataToInsert, chain.getPreviousBlock().getHash());
+                blockToAdd.mineBlock();
                 this.chain.writeOnChain(blockToAdd);
 
                 if (useSheets == true) {
@@ -94,7 +91,12 @@ public class UI {
                 continue;
             }
 
-            if (command.equals("EXIT")) {
+            if (command.equals("4")) {
+                this.sheets.checkSheetsChainValidity(this.chain);
+                continue;
+            }
+
+            if (command.equals("X")) {
                 break;
             }
 
@@ -107,8 +109,27 @@ public class UI {
 
         List<Block> allBlocks = this.chain.getChain();
 
+        System.out.println("");
+        
         for (Block b : allBlocks) {
             System.out.println(b.toString());
+        }
+    }
+
+    public void defaultInstructions() {
+        System.out.println("\nPress '1' to create a new block");
+        System.out.println("Press '2' to print out all blocks");
+        System.out.println("Press '3' to check chain's validity");
+        System.out.println("Press 'x' to exit");
+        System.out.print(">");
+    }
+    
+    public void printInstructions() {
+        if (useSheets) {
+            this.defaultInstructions();
+            System.out.println("Press '4' to check validity of the chain on Google Sheets");  
+        } else {
+            this.defaultInstructions();
         }
     }
 }

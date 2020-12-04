@@ -7,8 +7,9 @@ public class Block {
 
     private final String data;
     private final long date;
-    private final String hash;
+    private String hash;
     private final String previousHash;
+    private int nonce;
 
     public Block(String data, String previousHash) {
         this.data = data;
@@ -57,9 +58,22 @@ public class Block {
     }
 
     public String createHash() {
-        String hashData = this.previousHash + Long.toString(this.date) + this.data;
+        String hashData = this.previousHash + Long.toString(this.date) + this.data + Integer.toString(nonce);
         String blocksHash = applyHashFunction(hashData);
         return blocksHash;
+    }
+
+    public void mineBlock() {
+        
+        System.out.println("\nMining a block, this takes a few seconds");
+        
+        String toMatch = new String(new char[4]).replace('\0', '0');
+        
+        while (!this.hash.substring(0, 4).equals(toMatch)) {
+            this.nonce++;
+            this.hash = createHash();
+        }
+        System.out.println("Block succesfully mined!");
     }
 
     @Override

@@ -19,17 +19,23 @@ public class Chain {
         return this.chain.get(chain.size() - 1);
     }
 
-    public Block getBlock(int indeksi) {
-        return this.chain.get(indeksi);
+    public Block getBlock(int index) {
+        return this.chain.get(index);
     }
 
     public List<Block> getChain() {
         return chain;
     }
+    
+    public int getChainSize() {
+        return this.chain.size();
+    }
 
     public void checkValidity() {
         Block currentBlock;
         Block previousBlock;
+        
+        System.out.println("");
 
         for (int i = 1; i < this.chain.size(); i++) {
             currentBlock = this.chain.get(i);
