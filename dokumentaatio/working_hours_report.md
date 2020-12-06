@@ -16,4 +16,7 @@
 | 28.11 | 3    |fixed style, general work on code|
 | 29.11 | 3    |Google Sheets API problems|
 | 30.11 | 2    |Did a sequence diagram and started planning new functionality|
-| sum   | 39   | | 
+| 2.11  | 4    |Checks for sheets compared to local data|
+| 3.11  | 4    |Started implementing mining functionality|
+| 4.11  | 5    |Continued on mining. Fixed sheets input handling|
+| sum   | 52   | | 
