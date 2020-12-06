@@ -3,6 +3,9 @@ package fi.koululainenjoona.logic;
 import java.security.MessageDigest;
 import java.util.Date;
 
+/**
+ *This class contains the functionality for managing the individual blocks
+ */
 public class Block {
 
     private final String data;
@@ -11,6 +14,12 @@ public class Block {
     private final String previousHash;
     private int nonce;
 
+    /**
+     * The constructor first sets some information used for creating a hash for
+     * the Block and then creates the hash itself
+     * @param data
+     * @param previousHash
+     */
     public Block(String data, String previousHash) {
         this.data = data;
         this.date = new Date().getTime();
@@ -26,11 +35,17 @@ public class Block {
     public String getData() {
         return data;
     }
-
+    
     public String getPreviousHash() {
         return previousHash;
     }
 
+    /**
+     * This method applies the SHA3-256 hash function to a String input. It uses
+     * the input combined with the data set in the constructor.
+     * @param input
+     * @return String
+     */
     public String applyHashFunction(String input) {
 
         try {
@@ -46,6 +61,11 @@ public class Block {
         }
     }
 
+    /**
+     * This method converts the SHA3-256 created byte[] digest to a hexadecimal form String
+     * @param bytes
+     * @return String
+     */
     public String convertToHexadecimal(byte[] bytes) {
 
         StringBuilder hexadecimalBuilder = new StringBuilder();
@@ -57,12 +77,23 @@ public class Block {
         return hexadecimalBuilder.toString();
     }
 
+    /**
+     * This method creates a String combined from the data the constructor has set
+     * and uses a hash function to calculate a unique hash
+     * @return String
+     */
     public String createHash() {
         String hashData = this.previousHash + Long.toString(this.date) + this.data + Integer.toString(nonce);
         String blocksHash = applyHashFunction(hashData);
         return blocksHash;
     }
 
+    /**
+     * This method tries to find a number (the nonce) that when combined with the other parameters of
+     * the createHash() method creates a hash that starts with four zeros. The purpose is to act as a
+     * computationally intensive operation that prevents malicious actors from manipulating the chain.
+     * In this application's case this computation task is easy enough for it to work for demonstrative purposes
+     */
     public void mineBlock() {
         
         System.out.println("\nMining a block, this takes a few seconds");

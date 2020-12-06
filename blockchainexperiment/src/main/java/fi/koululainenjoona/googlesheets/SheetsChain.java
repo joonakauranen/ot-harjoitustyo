@@ -17,15 +17,30 @@ import java.security.GeneralSecurityException;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ *
+ * This class contains the functionality for interacting with Google Sheets
+ */
 public class SheetsChain {
 
     private Sheets sheetsService;
     private final String spreadsheetId = "1YfgQ27ZTYH4ORWwX9duBnVBVq5dM8lSUDKzokZxXNqk";
 
+    /**
+     * The constructors calls the SheetService class and obtains the necessary
+     * service that allows the app to connect to Google Sheets
+     * @throws GeneralSecurityException
+     * @throws IOException
+     */
     public SheetsChain() throws GeneralSecurityException, IOException {
         this.sheetsService = SheetsService.getSheetsService();
     }
 
+    /**
+     * Writes data that's stored in a block to Google Sheets spreadsheet
+     * @param block
+     * @throws IOException
+     */
     public void writeSheet(Block block) throws IOException {
 
         String genesisBlockData = block.getData();
@@ -40,6 +55,13 @@ public class SheetsChain {
                 .execute();
     }
 
+    /**
+     * Appends data that a block contains to a spreadsheet. Appending is used after
+     * a standard piece of information is written with the writeSheet() method.
+     * Using append makes writing on the sheet possible without know how many cells are already written
+     * @param block
+     * @throws IOException
+     */
     public void appendToSheet(Block block) throws IOException {
 
         String data = block.getData();
@@ -55,6 +77,10 @@ public class SheetsChain {
                 .execute();
     }
 
+    /**
+     * Clears all the cells in a sheet
+     * @throws IOException
+     */
     public void clearSheet() throws IOException {
         ClearValuesRequest clearValuesRequest = new ClearValuesRequest();
 
@@ -62,6 +88,9 @@ public class SheetsChain {
 
     }
 
+    /**
+     * Opens the standard browser on the users computer
+     */
     public void openStandardSheetInBrowser() {
         String url = "https://docs.google.com/spreadsheets/d/1YfgQ27ZTYH4ORWwX9duBnVBVq5dM8lSUDKzokZxXNqk/edit?usp=sharing";
 
@@ -82,6 +111,13 @@ public class SheetsChain {
         }
     }
 
+    /**
+     * This application only writes to cells A"n" and B"n". This method reads the data
+     * stored in the n:th row of the column A. Index determines the row
+     * @param field
+     * @return String
+     * @throws IOException
+     */
     public String readData(int field) throws IOException {
 
         List<String> range = Arrays.asList("A" + field);
@@ -91,6 +127,13 @@ public class SheetsChain {
         return sheetData;
     }
 
+    /**
+     * This application only writes to cells A"n" and B"n". This method reads the data
+     * stored in the n:th row of the column A. Index determines the row
+     * @param field
+     * @return String
+     * @throws IOException
+     */
     public String readHash(int field) throws IOException {
 
         List<String> range = Arrays.asList("B" + field);
@@ -100,6 +143,11 @@ public class SheetsChain {
         return sheetHash;
     }
 
+    /**
+     * This method parses the input that the method sheetReader() obtains from Google Sheets
+     * @param range
+     * @return String
+     */
     public String parseValue(ValueRange range) {
 
         String parsedString = String.valueOf(range);
@@ -113,6 +161,13 @@ public class SheetsChain {
         return parsedString;
     }
 
+    /**
+     * This method reads information from Google Sheets. It's a generic reader used 
+     * by other more specific methods related to reading data from a spreadsheet
+     * @param ranges
+     * @return String
+     * @throws IOException
+     */
     public String sheetReader(List<String> ranges) throws IOException {
 
         BatchGetValuesResponse readResult = this.sheetsService.spreadsheets().values()
@@ -128,6 +183,13 @@ public class SheetsChain {
 
     }
 
+    /**
+     * This function reads data from a spreadsheet and compares it to a local copy
+     * of the data that is supposed to be the same. It doesn't recalculate the hashes, 
+     * but instead uses a verified copy stored locally
+     * @param chain
+     * @throws IOException
+     */
     public void checkSheetsChainValidity(Chain chain) throws IOException {
 
         Boolean isValid = true;
@@ -168,6 +230,11 @@ public class SheetsChain {
         }
     }
 
+    /**
+     * This method clears a spreadsheet and rewrites it according to the data stored locally
+     * @param chain
+     * @throws IOException
+     */
     public void rewriteChain(Chain chain) throws IOException {
 
         this.clearSheet();

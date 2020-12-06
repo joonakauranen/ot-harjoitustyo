@@ -19,4 +19,5 @@
 | 2.11  | 4    |Checks for sheets compared to local data|
 | 3.11  | 4    |Started implementing mining functionality|
 | 4.11  | 5    |Continued on mining. Fixed sheets input handling|
-| sum   | 52   | | 
+| 6.11  | 2    |Started writing JavaDoc|
+| sum   | 54   | | 

@@ -18,15 +18,30 @@ import java.security.GeneralSecurityException;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * This class obtains the authorization for interacting with Google Sheets API 
+ */
 public class SheetsService {
 
     private static final String APPNAME = "blockchainexperiment";
 
+    /**
+     * This method contains the necessary service that allows the app to connect to Google Sheets
+     * @return Sheets
+     * @throws IOException
+     * @throws GeneralSecurityException
+     */
     public static Sheets getSheetsService() throws IOException, GeneralSecurityException {
         Credential credential = SheetsService.authorize();
         return new Sheets.Builder(GoogleNetHttpTransport.newTrustedTransport(), JacksonFactory.getDefaultInstance(), credential).setApplicationName(APPNAME).build();
     }
 
+    /**
+     * Creates the authorization flow for the users to get permission to use a spreadsheet in Google Sheets
+     * @return Credential
+     * @throws IOException
+     * @throws GeneralSecurityException
+     */
     public static Credential authorize() throws IOException, GeneralSecurityException {
         InputStream in = SheetsService.class.getResourceAsStream("/credentials.json");
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JacksonFactory.getDefaultInstance(), new InputStreamReader(in));
