@@ -20,4 +20,5 @@
 | 3.11  | 4    |Started implementing mining functionality|
 | 4.11  | 5    |Continued on mining. Fixed sheets input handling|
 | 6.11  | 2    |Started writing JavaDoc|
-| sum   | 54   | | 
+| 7.11  | 5    |Tests, JavaDoc, User instructions, Architecture|
+| sum   | 59   | | 
