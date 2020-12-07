@@ -50,3 +50,6 @@ The documentation can be found in _target/site/apidocs/index.html_
 ## Releases
 
 Week five [release](https://github.com/joonakauranen/ot-harjoitustyo/releases/tag/viikko5)
+
+Week six [release](https://github.com/joonakauranen/ot-harjoitustyo/releases/tag/week6)
+
