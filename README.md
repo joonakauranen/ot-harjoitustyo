@@ -39,6 +39,14 @@ mvn package
 
 Now a file named _blockchainexperiment-1.0-SNAPSHOT.jar_ can be found in the project's _target_ folder
 
+## JavaDoc
+
+Generate JavaDoc with the following command:
+
+mvn javadoc:javadoc
+
+The documentation can be found in _target/site/apidocs/index.html_
+
 ## Releases
 
 Week five [release](https://github.com/joonakauranen/ot-harjoitustyo/releases/tag/viikko5)
