@@ -54,6 +54,8 @@
                 <configuration>
                     <excludes>
                         <exclude>fi/koululainenjoona/ui/*</exclude>
+                        <!--google sheets exluded because I concluded it would be more approppriate to use integration tests for an API -->
+                        <exclude>fi/koululainenjoona/googlesheets/*</exclude>
                     </excludes>
                 </configuration>
                 <executions>
