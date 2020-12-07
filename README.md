@@ -11,6 +11,8 @@ The purpose of this application is to demonstrate how a very basic implementatio
 
 [Architecture](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/architecture.md)
 
+[User Instructions](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/user_instructions.md)
+
 ## Testing
 
 Run tests with the following command:
