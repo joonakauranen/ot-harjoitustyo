@@ -1,7 +1,7 @@
 
 # blockchainexperiment
 
-The purpose of this application is to demonstrate how a very basic implementation of a blockchain system works. Blocks are stored locally with the possibility of also writing on Google docs spreadsheet. The user can write a message and store it on chain. The program will calculate a hash for each entry and those messages and hashes will form a cryptographically secured chain of Blocks, a Blockchain. The user can print out the messages in the chain and check it's validity by having the hashes recalculated and compared to the original entries. Blocks can be written to a Google Sheets spreadsheet. The sheet is publicly editable. If the sheet is written to from outside of this application the chain will become corrupted and the program will notice it and do a rewrite according to the local state of the chain.
+The purpose of this application is to demonstrate how a very basic implementation of a blockchain system works. Blocks are stored locally with the possibility of also writing on Google docs spreadsheet. The user can write a message and store it on chain. The program will calculate a hash for each entry and those messages and hashes will form a cryptographically secured chain of Blocks, a Blockchain. The user can print out the messages in the chain and check it's validity by having the hashes recalculated and compared to the original entries. Blocks can be written to a Google Sheets spreadsheet. The sheet is publicly editable. If the sheet is modified from outside of this application the chain will become corrupted and the program will notice it and do a rewrite according to the local state of the chain.
 
 ## Documentation
 
@@ -10,6 +10,8 @@ The purpose of this application is to demonstrate how a very basic implementatio
 [Working hours report](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/working_hours_report.md)
 
 [Architecture](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/architecture.md)
+
+[User Instructions](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/user_instructions.md)
 
 ## Testing
 
