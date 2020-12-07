@@ -1,15 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package fi.koululainenjoona.logic;
 
 import java.util.ArrayList;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -33,4 +26,31 @@ public class ChainTest {
     public void getChainWorks() {
         assertEquals(ArrayList.class, testChain.getChain().getClass());
     }
+    
+    @Test
+    public void writingOnChainWorks() {
+        this.testChain.writeOnChain(testBlock);
+        assertEquals("Here's some data", testChain.getBlock(2).getData());
+    }
+    
+    @Test
+    public void getPreviousBlockWorks() {
+        assertEquals("Here's some data", testChain.getPreviousBlock().getData());
+    }
+    
+    @Test
+    public void getBlockWorks() {
+        assertEquals("This automatically created block is the beginning of the blockchain", testChain.getBlock(0).getData());
+    }
+    
+    @Test
+    public void getChainSizeWorks() {
+        assertEquals(2, testChain.getChainSize());
+    }
+    
+    @Test
+    public void validityCheckWorks() {
+        assertEquals(true, testChain.checkValidity());
+    }
+    
 }

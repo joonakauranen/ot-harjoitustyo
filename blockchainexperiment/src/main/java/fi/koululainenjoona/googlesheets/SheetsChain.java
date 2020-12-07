@@ -89,7 +89,7 @@ public class SheetsChain {
     }
 
     /**
-     * Opens the standard browser on the users computer
+     * Opens the standard sheet in browser.
      */
     public void openStandardSheetInBrowser() {
         String url = "https://docs.google.com/spreadsheets/d/1YfgQ27ZTYH4ORWwX9duBnVBVq5dM8lSUDKzokZxXNqk/edit?usp=sharing";

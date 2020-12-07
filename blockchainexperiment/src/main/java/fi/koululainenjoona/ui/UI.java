@@ -8,18 +8,32 @@ import java.security.GeneralSecurityException;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ *This class forms the user interface for all the other classes
+ */
 public class UI {
 
-    private Scanner scanner;
-    private Chain chain;
+    private final Scanner scanner;
+    private final Chain chain;
     private SheetsChain sheets;
     private Boolean useSheets = false;
 
+    /**
+     * The constructor sets a Chain object and a Scanner to be used in the UI
+     * @param chain
+     * @param scanner
+     */
     public UI(Chain chain, Scanner scanner) {
         this.scanner = scanner;
         this.chain = chain;
     }
 
+    /**
+     * This method starts the application, it presents the availability for all the
+     * functionality accessible to the user
+     * @throws IOException
+     * @throws GeneralSecurityException
+     */
     public void run() throws IOException, GeneralSecurityException {
 
         while (true) {
@@ -69,7 +83,11 @@ public class UI {
             }
 
             if (command.equals("3")) {
-                this.chain.checkValidity();
+                if (this.chain.checkValidity()) {
+                    System.out.println("\nThe local copy of the chain is valid");
+                } else {
+                    System.out.println("\nThe local copy of the chain is not valid");
+                }
                 continue;
             }
 
@@ -86,6 +104,10 @@ public class UI {
         }
     }
 
+    /**
+     * This method iterates through all the Block objects in this.chain and
+     * calls toString() for each
+     */
     public void printAllBlocks() {
 
         List<Block> allBlocks = this.chain.getChain();
@@ -97,6 +119,9 @@ public class UI {
         }
     }
 
+    /**
+     * This method prints out the instructions for using this application
+     */
     public void printInstructions() {
 
         System.out.println("\nPress '1' to create a new block");
@@ -111,6 +136,12 @@ public class UI {
         System.out.print(">");
     }
 
+    /**
+     * If the user want to use Google Sheets this method prepares the application for it.
+     * It creates a SheetsChain object and opens the standard sheet
+     * @throws GeneralSecurityException
+     * @throws IOException
+     */
     public void confrimSheetsUsage() throws GeneralSecurityException, IOException {
         this.sheets = new SheetsChain();
         this.sheets.clearSheet();
@@ -118,6 +149,12 @@ public class UI {
         useSheets = true;
     }
 
+    /**
+     * This method creates the first block of the chain. The hash needs to be calculated
+     * based on the previous blocks hash and since this one doesn't have it the previous hash
+     * is manually set to 0.
+     * @throws IOException
+     */
     public void createGenesisBlock() throws IOException {
         Block genesisBlock = new Block("This automatically created block is the beginning of the blockchain", "0");
         this.chain.writeOnChain(genesisBlock);
@@ -126,6 +163,11 @@ public class UI {
         }
     }
 
+    /**
+     * This method handles creating and adding new Blocks to the chain. If the user has opt in for Google Sheets
+     * usage it writes to Google Sheets as well in addition to the local chain
+     * @throws IOException
+     */
     public void createNewBlock() throws IOException {
         System.out.println("\nType a message to save on the chain and press ENTER: ");
         System.out.print(">");

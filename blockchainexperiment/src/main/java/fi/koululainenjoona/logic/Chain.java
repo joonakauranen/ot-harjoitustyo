@@ -5,7 +5,8 @@ import java.util.List;
 
 /**
  *
- * This class contains the functionality for managing the data in this app (the blocks) as it relates to the larger structure of the app (the chain)
+ * This class contains the functionality for managing the data in this app (the
+ * blocks) as it relates to the larger structure of the app (the chain)
  */
 public class Chain {
 
@@ -20,6 +21,7 @@ public class Chain {
 
     /**
      * Adds a Block object into the ArrayList
+     *
      * @param block
      */
     public void writeOnChain(Block block) {
@@ -28,6 +30,7 @@ public class Chain {
 
     /**
      * This function gets the second last element from the chain.
+     *
      * @return Block
      */
     public Block getPreviousBlock() {
@@ -36,6 +39,7 @@ public class Chain {
 
     /**
      * Gets n:th element from the chain. N is determined by the parameter index
+     *
      * @param index
      * @return Block
      */
@@ -49,6 +53,7 @@ public class Chain {
 
     /**
      * Simply returns the size of the ArrayList called chain
+     *
      * @return int
      */
     public int getChainSize() {
@@ -56,32 +61,32 @@ public class Chain {
     }
 
     /**
-     * This method recalculates all the hashes for each block. The hash is calculated
-     * based on the data that is stored in the block, if the data has been changed
-     * the hash as it was calculated when the block was first mined won't match with
-     * the hash that this function calculated. This mismatch means the original entry
-     * has been manipulated and the chain is not valid.
+     * This method recalculates a hash for each of the blocks.The hash is
+     * calculated based on the data that is stored in the block, if the data has
+     * been changed the hash as it was calculated when the block was first mined
+     * won't match with the hash that this function calculated. This mismatch
+     * means the original entry has been manipulated and the chain is not valid.
+     *
+     * @return Boolean
      */
-    public void checkValidity() {
+    public boolean checkValidity() {
         Block currentBlock;
         Block previousBlock;
-
-        System.out.println("");
 
         for (int i = 1; i < this.chain.size(); i++) {
             currentBlock = this.chain.get(i);
             previousBlock = this.chain.get(i - 1);
 
             if (!currentBlock.getHash().equals(currentBlock.createHash())) {
-                System.out.println("Not valid");
+                return false;
             }
 
             if (!previousBlock.getHash().equals(currentBlock.getPreviousHash())) {
-                System.out.println("Not valid");
+                return false;
             }
 
         }
-        System.out.println("Valid");
+        return true;
     }
 
 }

@@ -107,6 +107,10 @@ public class Block {
         System.out.println("Block succesfully mined!");
     }
 
+    
+    /**
+     * This an overridden toString() method.
+     */
     @Override
     public String toString() {
         return "Block data: " + this.data + " Hash: " + this.hash;

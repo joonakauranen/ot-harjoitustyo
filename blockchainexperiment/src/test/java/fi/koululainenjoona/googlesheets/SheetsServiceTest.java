@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author jobkaura
  */
-public class SheetsService {
+public class SheetsServiceTest {
     
-    public SheetsService() {
+    public SheetsServiceTest() {
     }
     
     @BeforeClass
