@@ -21,4 +21,5 @@
 | 4.11  | 5    |Continued on mining. Fixed sheets input handling|
 | 6.11  | 2    |Started writing JavaDoc|
 | 7.11  | 5    |Tests, JavaDoc, User instructions, Architecture|
-| sum   | 59   | | 
+| 10.11 | 3    |UI error catching, tests|
+| sum   | 62   | | 

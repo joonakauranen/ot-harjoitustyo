@@ -4,7 +4,7 @@ import java.security.MessageDigest;
 import java.util.Date;
 
 /**
- *This class contains the functionality for managing the individual blocks
+ * This class contains the functionality for managing the individual blocks
  */
 public class Block {
 
@@ -17,8 +17,9 @@ public class Block {
     /**
      * The constructor first sets some information used for creating a hash for
      * the Block and then creates the hash itself
-     * @param data
-     * @param previousHash
+     *
+     * @param data data to saved in the block
+     * @param previousHash hash from the previously added block
      */
     public Block(String data, String previousHash) {
         this.data = data;
@@ -35,7 +36,7 @@ public class Block {
     public String getData() {
         return data;
     }
-    
+
     public String getPreviousHash() {
         return previousHash;
     }
@@ -43,8 +44,9 @@ public class Block {
     /**
      * This method applies the SHA3-256 hash function to a String input. It uses
      * the input combined with the data set in the constructor.
-     * @param input
-     * @return String
+     *
+     * @param input the hash is calculated from this input
+     * @return String hash in a hexadecimal form
      */
     public String applyHashFunction(String input) {
 
@@ -62,9 +64,11 @@ public class Block {
     }
 
     /**
-     * This method converts the SHA3-256 created byte[] digest to a hexadecimal form String
-     * @param bytes
-     * @return String
+     * This method converts the SHA3-256 created byte[] digest to a hexadecimal
+     * form String
+     *
+     * @param bytes hash functions digest in bytes
+     * @return String digest converted into a string
      */
     public String convertToHexadecimal(byte[] bytes) {
 
@@ -78,9 +82,10 @@ public class Block {
     }
 
     /**
-     * This method creates a String combined from the data the constructor has set
-     * and uses a hash function to calculate a unique hash
-     * @return String
+     * This method creates a String combined from the data the constructor has
+     * set and uses a hash function to calculate a unique hash
+     *
+     * @return String hash for a block
      */
     public String createHash() {
         String hashData = this.previousHash + Long.toString(this.date) + this.data + Integer.toString(nonce);
@@ -89,27 +94,27 @@ public class Block {
     }
 
     /**
-     * This method tries to find a number (the nonce) that when combined with the other parameters of
-     * the createHash() method creates a hash that starts with four zeros. The purpose is to act as a
-     * computationally intensive operation that prevents malicious actors from manipulating the chain.
-     * In this application's case this computation task is easy enough for it to work for demonstrative purposes
+     * This method tries to find a number (the nonce) that when combined with
+     * the other parameters of the createHash() method creates a hash that
+     * starts with four zeros. The purpose is to act as a computationally
+     * intensive operation that prevents malicious actors from manipulating the
+     * chain. In this application's case this computation task is easy enough
+     * for it to work for demonstrative purposes
      */
     public void mineBlock() {
-        
-        System.out.println("\nMining a block, this takes a few seconds");
-        
+
         String toMatch = new String(new char[4]).replace('\0', '0');
-        
+
         while (!this.hash.substring(0, 4).equals(toMatch)) {
             this.nonce++;
             this.hash = createHash();
         }
-        System.out.println("Block succesfully mined!");
     }
 
-    
     /**
      * This an overridden toString() method.
+     *
+     * @return String information about a block
      */
     @Override
     public String toString() {

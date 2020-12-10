@@ -19,6 +19,7 @@ public class ChainTest {
         testChain = new Chain();
         testChain.writeOnChain(new Block("This automatically created block is the beginning of the blockchain", "0"));
         testBlock = new Block("Here's some data", testChain.getPreviousBlock().getHash());
+        testBlock.mineBlock();
         testChain.writeOnChain(testBlock);
     }
 
@@ -49,8 +50,15 @@ public class ChainTest {
     }
     
     @Test
-    public void validityCheckWorks() {
+    public void validityChecReturnsTrueWhenChainIsCorrect() {
         assertEquals(true, testChain.checkValidity());
+    }
+    
+    @Test
+    public void validityChecReturnsFalseWhenChainIsCorrect() {
+        Block blockThatIsNotMined = new Block("Incorrect block", "0");
+        testChain.writeOnChain(blockThatIsNotMined);
+        assertEquals(false, testChain.checkValidity());
     }
     
 }

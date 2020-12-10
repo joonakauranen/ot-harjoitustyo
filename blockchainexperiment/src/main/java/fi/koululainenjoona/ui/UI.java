@@ -9,28 +9,33 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- *This class forms the user interface for all the other classes
+ * This class forms the user interface for all the other classes
  */
 public class UI {
 
     private final Scanner scanner;
     private final Chain chain;
     private SheetsChain sheets;
-    private Boolean useSheets = false;
+    private Boolean useSheets;
+    private Boolean verificationSuccesful;
 
     /**
      * The constructor sets a Chain object and a Scanner to be used in the UI
+     *
      * @param chain
      * @param scanner
      */
     public UI(Chain chain, Scanner scanner) {
         this.scanner = scanner;
         this.chain = chain;
+        this.useSheets = false;
+        this.verificationSuccesful = false;
     }
 
     /**
-     * This method starts the application, it presents the availability for all the
-     * functionality accessible to the user
+     * This method starts the application, it presents the availability for all
+     * the functionality accessible to the user
+     *
      * @throws IOException
      * @throws GeneralSecurityException
      */
@@ -50,6 +55,9 @@ public class UI {
                 confirm = confirm.toUpperCase();
                 if (confirm.equals("Y")) {
                     this.confrimSheetsUsage();
+                    if (!this.verificationSuccesful) {
+                        continue;
+                    }
                     break;
                 }
                 break;
@@ -91,8 +99,8 @@ public class UI {
                 continue;
             }
 
-            if (command.equals("4")) {
-                this.sheets.checkSheetsChainValidity(this.chain);
+            if (command.equals("4") && this.useSheets == true) {
+                System.out.println(this.sheets.checkSheetsChainValidity(this.chain));
                 continue;
             }
 
@@ -137,22 +145,30 @@ public class UI {
     }
 
     /**
-     * If the user want to use Google Sheets this method prepares the application for it.
-     * It creates a SheetsChain object and opens the standard sheet
+     * If the user want to use Google Sheets this method prepares the
+     * application for it. It creates a SheetsChain object and opens the
+     * standard sheet
+     *
      * @throws GeneralSecurityException
      * @throws IOException
      */
-    public void confrimSheetsUsage() throws GeneralSecurityException, IOException {
-        this.sheets = new SheetsChain();
-        this.sheets.clearSheet();
-        this.sheets.openStandardSheetInBrowser();
-        useSheets = true;
+    public void confrimSheetsUsage() throws IOException, GeneralSecurityException {
+        try {
+            this.sheets = new SheetsChain();
+            this.sheets.clearSheet();
+            this.sheets.openStandardSheetInBrowser();
+            verificationSuccesful = true;
+            this.useSheets = true;
+        } catch (GeneralSecurityException | IOException ex) {
+            System.out.println("\nVerification failed. Try again or continue without Google Sheets\n");
+        }
     }
 
     /**
-     * This method creates the first block of the chain. The hash needs to be calculated
-     * based on the previous blocks hash and since this one doesn't have it the previous hash
-     * is manually set to 0.
+     * This method creates the first block of the chain. The hash needs to be
+     * calculated based on the previous blocks hash and since this one doesn't
+     * have it the previous hash is manually set to 0.
+     *
      * @throws IOException
      */
     public void createGenesisBlock() throws IOException {
@@ -164,8 +180,10 @@ public class UI {
     }
 
     /**
-     * This method handles creating and adding new Blocks to the chain. If the user has opt in for Google Sheets
-     * usage it writes to Google Sheets as well in addition to the local chain
+     * This method handles creating and adding new Blocks to the chain. If the
+     * user has opt in for Google Sheets usage it writes to Google Sheets as
+     * well in addition to the local chain
+     *
      * @throws IOException
      */
     public void createNewBlock() throws IOException {
@@ -173,11 +191,13 @@ public class UI {
         System.out.print(">");
         String dataToInsert = scanner.nextLine();
         Block blockToAdd = new Block(dataToInsert, chain.getPreviousBlock().getHash());
+        System.out.println("\nMining a block, this takes a few seconds");
         blockToAdd.mineBlock();
         this.chain.writeOnChain(blockToAdd);
 
         if (useSheets == true) {
             this.sheets.appendToSheet(blockToAdd);
         }
+        System.out.println("Block succesfully mined!");
     }
 }

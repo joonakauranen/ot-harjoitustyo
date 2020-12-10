@@ -19,15 +19,17 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * This class obtains the authorization for interacting with Google Sheets API 
+ * This class obtains the authorization for interacting with Google Sheets API
  */
 public class SheetsService {
 
     private static final String APPNAME = "blockchainexperiment";
 
     /**
-     * This method contains the necessary service that allows the app to connect to Google Sheets
-     * @return Sheets
+     * This method contains the necessary service that allows the app to connect
+     * to Google Sheets
+     *
+     * @return Sheets service to interact with a spreadsheet
      * @throws IOException
      * @throws GeneralSecurityException
      */
@@ -37,8 +39,10 @@ public class SheetsService {
     }
 
     /**
-     * Creates the authorization flow for the users to get permission to use a spreadsheet in Google Sheets
-     * @return Credential
+     * Creates the authorization flow for the users to get permission to use a
+     * spreadsheet in Google Sheets
+     *
+     * @return Credential the credentials for accessing the Google API
      * @throws IOException
      * @throws GeneralSecurityException
      */

@@ -22,7 +22,7 @@ public class Chain {
     /**
      * Adds a Block object into the ArrayList
      *
-     * @param block
+     * @param block block to be added to the chain
      */
     public void writeOnChain(Block block) {
         this.chain.add(block);
@@ -31,7 +31,7 @@ public class Chain {
     /**
      * This function gets the second last element from the chain.
      *
-     * @return Block
+     * @return Block second last block object from the chain
      */
     public Block getPreviousBlock() {
         return this.chain.get(chain.size() - 1);
@@ -40,8 +40,8 @@ public class Chain {
     /**
      * Gets n:th element from the chain. N is determined by the parameter index
      *
-     * @param index
-     * @return Block
+     * @param index n:th index to return
+     * @return Block return the n:th block from the chain
      */
     public Block getBlock(int index) {
         return this.chain.get(index);
@@ -54,7 +54,7 @@ public class Chain {
     /**
      * Simply returns the size of the ArrayList called chain
      *
-     * @return int
+     * @return int amount of blocks in the chain
      */
     public int getChainSize() {
         return this.chain.size();
@@ -67,11 +67,12 @@ public class Chain {
      * won't match with the hash that this function calculated. This mismatch
      * means the original entry has been manipulated and the chain is not valid.
      *
-     * @return Boolean
+     * @return Boolean true if the chain is valid, false if not
      */
     public boolean checkValidity() {
         Block currentBlock;
         Block previousBlock;
+        String toMatch = new String(new char[4]).replace('\0', '0');
 
         for (int i = 1; i < this.chain.size(); i++) {
             currentBlock = this.chain.get(i);
@@ -82,6 +83,10 @@ public class Chain {
             }
 
             if (!previousBlock.getHash().equals(currentBlock.getPreviousHash())) {
+                return false;
+            }
+
+            if (!currentBlock.getHash().substring(0, 4).equals(toMatch)) {
                 return false;
             }
 
