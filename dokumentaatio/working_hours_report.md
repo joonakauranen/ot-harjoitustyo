@@ -22,4 +22,5 @@
 | 6.11  | 2    |Started writing JavaDoc|
 | 7.11  | 5    |Tests, JavaDoc, User instructions, Architecture|
 | 10.11 | 3    |UI error catching, tests|
+| 10.11 | 2    |Javadoc and architecture|
 | sum   | 62   | | 
