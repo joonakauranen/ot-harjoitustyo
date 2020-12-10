@@ -35,7 +35,7 @@ The UI is isolated from the rest of the software's logic. Logic wise the sole th
 
 ## Block
 
-As the name suggests _Blocks_ are the building blocks of this program.
+As the name suggests _Blocks_ are the building blocks of this program. 
 
 ## Chain
 
