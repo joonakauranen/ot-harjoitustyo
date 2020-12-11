@@ -1,5 +1,6 @@
 # Architecture 
 
+
 ## Package Structure
 
 The following diagram illustrates the package structure of the application:
@@ -17,6 +18,7 @@ Package ![logic](https://github.com/joonakauranen/ot-harjoitustyo/tree/master/bl
 ### googlesheets
 
 The package ![googlesheets](https://github.com/joonakauranen/ot-harjoitustyo/tree/master/blockchainexperiment/src/main/java/fi/koululainenjoona/googlesheets) connects the application to Google's spreadsheet program Google Sheets. It consists of two classes. _SheetsChain_ and _SheetsService_.
+
 
 
 ## Class Structure
@@ -55,13 +57,15 @@ The user can choose to use the application without Google Sheets.
 
 The method checkSheetsChainValidity() compares the local copy to the publicly editable spreadsheet. Modifying the spreadsheet from outside of the application (ie. without mining the blocks and without connecting the new entry to the previous ones) is noticed by this validity checking function. When this method is called the application will tell the user what data was tampered with, clear the cells and rewrite the sheet according to the cryptographically verified version.
 
+
+
 ## Main functionality
 
 Sequence diagrams illustrating main functionality.
 
 ### Creating a new block
 
-A new block is created when the user types _1_ in the command-line UI. In the following case the sequence diagram represents the logic when a user has selected to use Google Sheets. 
+A new block is created when the user types _1_ in the command-line UI. The following sequence diagram represents the logic in a case where a user has selected to use Google Sheets. 
 
 ![](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/pictures/createNewBlock.png)
 
@@ -70,6 +74,8 @@ The variable _dataToAdd_ contains the message a user wants to save. Methods getP
 Next an if-statement checks if the variable useSheets is set to true (meaning should Google Sheets be used). In this case it is set to true and the latest Block will be written to a spreasheet. Method appendToSheet() in GoogleSheets class is called. Similarly to writing on Chain, the users message (data variable) and the Blocks hash are needed. They are fetched from the Block that was given as a parameter. Google API's execute() method is set to write the values starting from after the last entry and the entry is then made.
 
 ### Checking the Chains validity
+
+Cgggwoeghoihgoirehgoierhgoirehgoirehg
 
 ![](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/pictures/checkValidity.png)
 
