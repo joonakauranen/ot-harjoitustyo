@@ -41,11 +41,19 @@ Blocks contain messages and a cryptographic fingerprint is created based on this
 
 ## Chain
 
-[Chain](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/blockchainexperiment/src/main/java/fi/koululainenjoona/logic/Chain.java) stores the individual blocks and combines them together into an immutable chain of entries. When a new block is added the hash of a previous block is used in creating a new hash for the latest entry. This serves the purpose of connecting the blocks to each other. The method checkValidity() makes sure that none of the data that has been stored has not been tampered with. This is done by recalculating all the hashes for all of the blocks.
+[Chain](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/blockchainexperiment/src/main/java/fi/koululainenjoona/logic/Chain.java) stores the individual blocks and combines them together into an immutable chain of entries. When a new block is added the hash of a previous block is used in creating a new hash for the latest entry. This serves the purpose of connecting the blocks to each other. The method checkValidity() makes sure that none of the data that has been stored on the chain has been tampered with. This is done by recalculating all the hashes for all of the blocks.
 
 ## SheetsService
 
-[SheetsService](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/blockchainexperiment/src/main/java/fi/koululainenjoona/googlesheets/SheetsService.java) 
+[SheetsService](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/blockchainexperiment/src/main/java/fi/koululainenjoona/googlesheets/SheetsService.java) connects this program to Google's spreadsheet program Google Sheets. SheetsService class authorizes the user the access to the Google API and the standard sheet used by this application.
+
+The user can choose to use the application without Google Sheets.
+
+## SheetsChain
+
+[SheetsChain] (https://github.com/joonakauranen/ot-harjoitustyo/blob/master/blockchainexperiment/src/main/java/fi/koululainenjoona/googlesheets/SheetsChain.java) reads, writes, clears and verifies the entries made to a Google Sheets spreadsheet. SheetsChain interacts with classes Block and Chain, so the same Blocks that are written to the local copy of the chain are written to a spreadsheet.
+
+The method checkSheetsChainValidity() compares the local copy to the publicly editable spreadsheet. Modifying the spreadsheet from outside of the application (ie. without mining the blocks and without connecting the new entry to the previous ones) is noticed by this validity checking function. When this method is called the application will tell the user what data was tampered with, clear the cells and rewrite the sheet according to the cryptographically verified version.
 
 ![](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/pictures/writeSheet_diagram.png)
 
