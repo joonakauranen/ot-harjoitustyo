@@ -51,7 +51,7 @@ The user can choose to use the application without Google Sheets.
 
 ## SheetsChain
 
-[SheetsChain] (https://github.com/joonakauranen/ot-harjoitustyo/blob/master/blockchainexperiment/src/main/java/fi/koululainenjoona/googlesheets/SheetsChain.java) reads, writes, clears and verifies the entries made to a Google Sheets spreadsheet. SheetsChain interacts with classes Block and Chain, so the same Blocks that are written to the local copy of the chain are written to a spreadsheet.
+[SheetsChain](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/blockchainexperiment/src/main/java/fi/koululainenjoona/googlesheets/SheetsChain.java) reads, writes, clears and verifies the entries made to a Google Sheets spreadsheet. SheetsChain interacts with classes Block and Chain, so the same Blocks that are written to the local copy of the chain are written to a spreadsheet.
 
 The method checkSheetsChainValidity() compares the local copy to the publicly editable spreadsheet. Modifying the spreadsheet from outside of the application (ie. without mining the blocks and without connecting the new entry to the previous ones) is noticed by this validity checking function. When this method is called the application will tell the user what data was tampered with, clear the cells and rewrite the sheet according to the cryptographically verified version.
 
