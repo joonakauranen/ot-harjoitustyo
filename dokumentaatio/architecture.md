@@ -61,7 +61,7 @@ The method checkSheetsChainValidity() compares the local copy to the publicly ed
 
 ## Main functionality
 
-Sequence diagrams illustrating main functionality.
+Sequence diagrams illustrating the main functionality of the application.
 
 ### Creating a new block
 
