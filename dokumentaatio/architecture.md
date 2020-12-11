@@ -6,15 +6,15 @@ The following diagram illustrates the package structure of the application:
 
 ![](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/pictures/packagediagram.png)
 
-## ui
+### ui
 
 The package called ![ui](https://github.com/joonakauranen/ot-harjoitustyo/tree/master/blockchainexperiment/src/main/java/fi/koululainenjoona/ui) contains a command-line based user interface. The ui consists of a single class _UI_.
 
-## logic
+### logic
 
 Package ![logic](https://github.com/joonakauranen/ot-harjoitustyo/tree/master/blockchainexperiment/src/main/java/fi/koululainenjoona/logic) contains the classes that form the core functionality of the program. It contains two classes; _Block_ and _Chain_.
 
-## googlesheets
+### googlesheets
 
 The package ![googlesheets](https://github.com/joonakauranen/ot-harjoitustyo/tree/master/blockchainexperiment/src/main/java/fi/koululainenjoona/googlesheets) connects the application to Google's spreadsheet program Google Sheets. It consists of two classes. _SheetsChain_ and _SheetsService_.
 
@@ -25,7 +25,7 @@ The following diagram illustrates the class structure of the application:
 
 ![](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/pictures/classdiagram(1).png)
 
-## UI
+### UI
 
 ![UI](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/blockchainexperiment/src/main/java/fi/koululainenjoona/ui/UI.java) class presents all the functionality that is available to the user. The basic functionality of the UI is presented as a simple interface that prompts the user for a command and executes parts of the program accordingly.
 
@@ -33,27 +33,35 @@ The UI only presents the options the user has opted in to use.
 
 The UI is isolated from the rest of the software's logic. Logic wise the sole thing, in addition to making calls to the logic part of the software and printing out messages, it does is handling the calls to a toString() method of certain Objects.
 
-## Block
+### Block
 
 As the name suggests ![Block](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/blockchainexperiment/src/main/java/fi/koululainenjoona/logic/Block.java)s are the building blocks of this program. The main functionality in this class has to do with saving and securing the data this application handles. The most important methods; applyHashFuntion() and mineBlock() are explained shortly in the following paragraph: 
 
 Blocks contain messages and a cryptographic fingerprint is created based on this message, a timestamp and the previous blocks hash. The method applyHashFunction() creates the hash by using the SHA3-256 hashing function. A computation task is added by the mineBlock(), in a real world implementation participating in the system as a miner would be rewarded and completing this task would be difficult enough to create proper game theoretical incentives. In this implementation, for demonstrative purposes, the task is easy enough for it to be solved in a couple of seconds on a single device.
 
-## Chain
+### Chain
 
 [Chain](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/blockchainexperiment/src/main/java/fi/koululainenjoona/logic/Chain.java) stores the individual blocks and combines them together into an immutable chain of entries. When a new block is added the hash of a previous block is used in creating a new hash for the latest entry. This serves the purpose of connecting the blocks to each other. The method checkValidity() makes sure that none of the data that has been stored on the chain has been tampered with. This is done by recalculating all the hashes for all of the blocks.
 
-## SheetsService
+### SheetsService
 
 [SheetsService](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/blockchainexperiment/src/main/java/fi/koululainenjoona/googlesheets/SheetsService.java) connects this program to Google's spreadsheet program Google Sheets. SheetsService class authorizes the user the access to the Google API and the standard sheet used by this application.
 
 The user can choose to use the application without Google Sheets.
 
-## SheetsChain
+### SheetsChain
 
 [SheetsChain](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/blockchainexperiment/src/main/java/fi/koululainenjoona/googlesheets/SheetsChain.java) reads, writes, clears and verifies the entries made to a Google Sheets spreadsheet. SheetsChain interacts with classes Block and Chain, so the same Blocks that are written to the local copy of the chain are written to a spreadsheet.
 
 The method checkSheetsChainValidity() compares the local copy to the publicly editable spreadsheet. Modifying the spreadsheet from outside of the application (ie. without mining the blocks and without connecting the new entry to the previous ones) is noticed by this validity checking function. When this method is called the application will tell the user what data was tampered with, clear the cells and rewrite the sheet according to the cryptographically verified version.
 
-![](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/pictures/writeSheet_diagram.png)
+## Main functionality
+
+Sequence diagrams illustrating main functionality.
+
+### Creating a new block
+
+
+
+![](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/pictures/createNewBlock.png)
 
