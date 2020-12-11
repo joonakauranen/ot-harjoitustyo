@@ -16,11 +16,12 @@
 | 28.11 | 3    |fixed style, general work on code|
 | 29.11 | 3    |Google Sheets API problems|
 | 30.11 | 2    |Did a sequence diagram and started planning new functionality|
-| 2.11  | 4    |Checks for sheets compared to local data|
-| 3.11  | 4    |Started implementing mining functionality|
-| 4.11  | 5    |Continued on mining. Fixed sheets input handling|
-| 6.11  | 2    |Started writing JavaDoc|
-| 7.11  | 5    |Tests, JavaDoc, User instructions, Architecture|
-| 10.11 | 3    |UI error catching, tests|
-| 10.11 | 2    |Javadoc and architecture|
-| sum   | 62   | | 
+| 2.12  | 4    |Checks for sheets compared to local data|
+| 3.12  | 4    |Started implementing mining functionality|
+| 4.12  | 5    |Continued on mining. Fixed sheets input handling|
+| 6.12  | 2    |Started writing JavaDoc|
+| 7.12  | 5    |Tests, JavaDoc, User instructions, Architecture|
+| 10.12 | 3    |UI error catching, tests|
+| 10.12 | 2    |Javadoc and architecture|
+| 11.12 | 3    |Documentation|
+| sum   | 65   | | 
