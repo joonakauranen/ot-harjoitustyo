@@ -61,7 +61,15 @@ Sequence diagrams illustrating main functionality.
 
 ### Creating a new block
 
-
+A new block is created when the user types _1_ in the command-line UI. In the following case the sequence diagram represents the logic when a user has selected to use Google Sheets. 
 
 ![](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/pictures/createNewBlock.png)
+
+The variable _dataToAdd_ contains the message a user wants to save. Methods getPreviousBlock() and getHash() are used to get the hash of the previous Block. That hash is then used in calculating a new hash for a new Block. Then the newly created Block is returned to the UI. UI proceeds to mine the Block. The mineBlock() method computes a hash that's identical to the original hash except that it starts with four zeros. This has replaces the Blocks original hash. Now the block is ready to added to the Chain, writeOnChain() is called.
+
+Next an if-statement checks if the variable useSheets is set to true (meaning should Google Sheets be used). In this case it is set to true and the latest Block will be written to a spreasheet. Method appendToSheet() in GoogleSheets class is called. Similarly to writing on Chain, the users message (data variable) and the Blocks hash are needed. They are fetched from the Block that was given as a parameter. Google API's execute() method is set to write the values starting from after the last entry and the entry is then made.
+
+### Checking the Chains validity
+
+![](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/pictures/checkValidity.png)
 
