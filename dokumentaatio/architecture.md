@@ -41,7 +41,7 @@ Blocks contain messages and a cryptographic fingerprint is created based on this
 
 ## Chain
 
-[Chain](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/blockchainexperiment/src/main/java/fi/koululainenjoona/logic/Chain.java) stores the individual blocks and combines them together into an immutable chain of entries. When a new block is added the hash of a previous block is used in creating a new hash for the latest entry. This serves the purpose of connecting the blocks to each other. The method checkValidity() makes sure all the data that has been stored has not been tampered with. This is done by recalculating all the hashes for all of the blocks.
+[Chain](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/blockchainexperiment/src/main/java/fi/koululainenjoona/logic/Chain.java) stores the individual blocks and combines them together into an immutable chain of entries. When a new block is added the hash of a previous block is used in creating a new hash for the latest entry. This serves the purpose of connecting the blocks to each other. The method checkValidity() makes sure that none of the data that has been stored has not been tampered with. This is done by recalculating all the hashes for all of the blocks.
 
 ## SheetsService
 
