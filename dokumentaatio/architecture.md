@@ -73,9 +73,15 @@ The variable _dataToAdd_ contains the message a user wants to save. Methods getP
 
 Next an if-statement checks if the variable useSheets is set to true (meaning should Google Sheets be used). In this case it is set to true and the latest Block will be written to a spreasheet. Method appendToSheet() in GoogleSheets class is called. Similarly to writing on Chain, the users message (data variable) and the Blocks hash are needed. They are fetched from the Block that was given as a parameter. Google API's execute() method is set to write the values starting from after the last entry and the entry is then made.
 
-### Checking the Chains validity
+### Checking the Chain's validity
 
-Cgggwoeghoihgoirehgoierhgoirehgoirehg
+A user can verify the validity of the locally stored Chain by choosing _3_ in the command-line UI. The following sequence diagram represents a single iteration of a for loop that goes through all of the Blocks stored in a Chain:
 
 ![](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/pictures/checkValidity.png)
+
+The method checkValidity() will return true if the Chain is valid and false if the Chain is not valid. The if statements inside the method will return false if a mismatch is found and the execution of the method will be stopped. In the above sequence diagram everything matches and the method returns true.
+
+The actual checks are done by first taking the hash that was created using the original message the user has saved and then comparing creating a hash based on the message as it is at the time of running the method. Then a comparison is made between the two variables that both store the previous Block's hash, those being the variable _hash_ of the second last Block in the Chain and latest Blocks variable _previousHash_. If no data has been tampered with these two hashes will be identical.
+
+Finally the last if statement makes sure the Block has been adequately mined, ie it's hash starts with four zeros.
 
