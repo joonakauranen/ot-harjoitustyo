@@ -132,7 +132,7 @@ public class UI {
      */
     public void printInstructions() {
 
-        System.out.println("\nPress '1' to create a new block");
+        System.out.println("\nPress '1' to mine a new block");
         System.out.println("Press '2' to print out all blocks");
         System.out.println("Press '3' to check chain's validity");
 
