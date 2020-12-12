@@ -24,4 +24,5 @@
 | 10.12 | 3    |UI error catching, tests|
 | 10.12 | 2    |Javadoc and architecture|
 | 11.12 | 3    |Documentation|
-| sum   | 65   | | 
+| 12.12 | 3    |Documentation|
+| sum   | 68   | | 
