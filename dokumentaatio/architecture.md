@@ -81,7 +81,7 @@ A user can verify the validity of the locally stored Chain by choosing _3_ in th
 
 The method checkValidity() will return true if the Chain is valid and false if the Chain is not valid. The if statements inside the method will return false if a mismatch is found and the execution of the method will be stopped. In the above sequence diagram everything matches and the method returns true.
 
-The actual checks are done by first taking the hash that was created using the original message the user has saved and then comparing creating a hash based on the message as it is at the time of running the method. Then a comparison is made between the two variables that both store the previous Block's hash, those being the variable _hash_ of the second last Block in the Chain and latest Blocks variable _previousHash_. If no data has been tampered with these two hashes will be identical.
+The actual checks are done by first taking the hash that was created using the original message the user has saved and comparing that to a newly created hash that is based on the message as it is at the time of running the checkValidity() method. Then a comparison is made between the two variables that both store the previous Block's hash, those being the variable _hash_ of the second last Block in the Chain and latest Block's variable _previousHash_. If no data has been tampered with these two hashes will be identical.
 
 Finally the last if statement makes sure the Block has been adequately mined, ie it's hash starts with four zeros.
 
