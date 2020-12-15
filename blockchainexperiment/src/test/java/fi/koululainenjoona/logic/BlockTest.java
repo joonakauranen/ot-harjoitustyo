@@ -44,5 +44,10 @@ public class BlockTest {
     public void getPreviousHashReturnsTheCorrectHash() {
         assertEquals(testChain.getBlock(0).getHash(), testChain.getBlock(1).getPreviousHash());
     }
+    
+    @Test
+    public void toStringReturnsCorrectMessage() {
+        assertEquals("Block data: " + testChain.getBlock(1).getData() + " Hash: " + testChain.getBlock(1).getHash(), testChain.getBlock(1).toString());
+    }
 
 }

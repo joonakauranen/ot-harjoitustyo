@@ -5,34 +5,36 @@
  */
 package fi.koululainenjoona.googlesheets;
 
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
  * @author jobkaura
  */
 public class SheetsServiceTest {
-    
+
     public SheetsServiceTest() {
     }
-    
+
     @BeforeClass
-    public static void setUpClass() {
+    public static void voidsetUpClass() {
+
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
-    public void setUp() {
+    public void setUp() throws IOException, GeneralSecurityException {
+
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -40,6 +42,6 @@ public class SheetsServiceTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-    // @Test
+    //@Test
     // public void hello() {}
 }
