@@ -25,4 +25,5 @@
 | 10.12 | 2    |Javadoc and architecture|
 | 11.12 | 3    |Documentation|
 | 12.12 | 3    |Documentation|
-| sum   | 68   | | 
+| 15.12 | 5    |Trying to test google api. Test documentation|
+| sum   | 73   | | 
