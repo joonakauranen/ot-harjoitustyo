@@ -14,5 +14,11 @@ Test coverage statistics:
 ## System testing
 System testing was done manually.
 ### Installation
-ergergergreg
+Installation has been tested on devices with Cubbli and Ubuntu as well as on a remote desktop. Instructions for installation can be found in a separate [User Instructions](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/user_instructions.md)-file.
 ### Functionality
+All the functionality described in the [Requirements Analysis](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/requirements_analysis.md) has been manually tested. Cases where a user inputs "incorrect" commands have been tested as well as aborting the Google authorization flow.
+
+## Quality defects
+The way the validity of the blockchain is done is not optimal.
+When connecting to Google Sheets a Google service class could be used instead of always verifying with a Google account. That would make authorization easier for users and writing test for the integration easier. 
+
