@@ -26,4 +26,7 @@
 | 11.12 | 3    |Documentation|
 | 12.12 | 3    |Documentation|
 | 15.12 | 5    |Trying to test google api. Test documentation|
-| sum   | 73   | | 
+| 16.12 | 2    |Test documentation|
+| 17.12 | 3    |Documentation going through code|
+| 17.12 | 1    |System tests|
+| sum   | 79   | | 
