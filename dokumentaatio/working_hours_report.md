@@ -29,4 +29,5 @@
 | 16.12 | 2    |Test documentation|
 | 17.12 | 3    |Documentation going through code|
 | 17.12 | 1    |System tests|
-| sum   | 79   | | 
+| 19.12 | 1    |Final checks|
+| sum   | 80   | | 
