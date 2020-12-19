@@ -5,8 +5,6 @@
  */
 package fi.koululainenjoona.googlesheets;
 
-import java.io.IOException;
-import java.security.GeneralSecurityException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -31,7 +29,7 @@ public class SheetsServiceTest {
     }
 
     @Before
-    public void setUp() throws IOException, GeneralSecurityException {
+    public void setUp(){
 
     }
 
