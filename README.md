@@ -5,13 +5,15 @@ The purpose of this application is to demonstrate how a very basic implementatio
 
 ## Documentation
 
-[Requirements analysis](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/requirements_analysis.md)
+[Requirements Analysis](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/requirements_analysis.md)
 
-[Working hours report](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/working_hours_report.md)
+[Working Hours Report](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/working_hours_report.md)
 
 [Architecture](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/architecture.md)
 
 [User Instructions](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/user_instructions.md)
+
+[Test Documentation](https://github.com/joonakauranen/ot-harjoitustyo/blob/master/dokumentaatio/test_documentation.md)
 
 ## Testing
 
